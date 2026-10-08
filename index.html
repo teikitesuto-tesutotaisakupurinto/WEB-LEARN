@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>AI教育プラットフォーム</title>
+<style>
+body {
+    font-family: sans-serif;
+    background:#f5f6fa;
+    margin:0;
+}
+
+header {
+    background:#1f2937;
+    color:white;
+    padding:20px;
+    font-size:24px;
+}
+
+.container {
+    padding:20px;
+}
+
+.card {
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 8px #ddd;
+}
+
+button {
+    padding:12px 20px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+}
+
+button:hover {
+    opacity:0.8;
+}
+
+.problem {
+    font-size:20px;
+    margin:20px 0;
+}
+
+.hidden {
+    display:none;
+}
+
+.alert {
+    background:#fee2e2;
+    padding:15px;
+    border-radius:8px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+AI教育プラットフォーム
+</header>
+
+
+<div class="container">
+
+<div class="card">
+<h2>生徒ホーム</h2>
+
+<p>
+数学 理解度：
+<strong>72%</strong>
+</p>
+
+<p>
+AIおすすめ学習：
+<br>
+「一次関数 基礎問題 10問」
+</p>
+
+<button onclick="startProblem()">
+問題演習開始
+</button>
+
+</div>
+
+
+<div id="problemArea" class="card hidden">
+
+<h2>問題演習</h2>
+
+<div class="problem">
+2x + 5 = 15 のとき xを求めなさい。
+</div>
+
+<input id="answer" placeholder="答えを入力">
+
+<br><br>
+
+<button onclick="checkAnswer()">
+回答する
+</button>
+
+</div>
+
+
+<div id="resultArea" class="card hidden">
+
+<h2>解説</h2>
+
+<p id="result"></p>
+
+<button onclick="showAI()">
+AIステップ解説を見る
+</button>
+
+<div id="aiStep" class="hidden">
+
+<hr>
+
+<h3>AIステップ解説</h3>
+
+<p>
+STEP1<br>
+xを残すために5をなくします。
+</p>
+
+<p>
+STEP2<br>
+両辺から5を引きます。
+</p>
+
+<p>
+STEP3<br>
+2x=10になります。
+</p>
+
+<p>
+STEP4<br>
+2で割るとx=5です。
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>先生AI通知</h2>
+
+<div class="alert">
+
+警告：
+<br>
+Aさん
+<br>
+数学の正答率が20%低下しています。
+<br>
+AI推奨：
+一次関数の復習を実施してください。
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+function startProblem(){
+
+document.getElementById("problemArea")
+.classList.remove("hidden");
+
+}
+
+
+function checkAnswer(){
+
+let answer=document.getElementById("answer").value;
+
+document.getElementById("resultArea")
+.classList.remove("hidden");
+
+
+if(answer=="5"){
+
+document.getElementById("result").innerHTML=
+"正解です。<br>計算の流れを確認しましょう。";
+
+}else{
+
+document.getElementById("result").innerHTML=
+"不正解です。<br>移項の考え方を確認しましょう。";
+
+}
+
+}
+
+
+function showAI(){
+
+document.getElementById("aiStep")
+.classList.remove("hidden");
+
+}
+
+</script>
+
+</body>
+</html>
